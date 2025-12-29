@@ -10,7 +10,6 @@ documentation = "https://docs.rs/ssi-ucan/"
 
 [dependencies]
 thiserror.workspace = true
-iref.workspace = true
 serde = { workspace = true, features = ["derive"] }
 serde_json.workspace = true
 serde_with = { version = "1.14", features = ["base64"] }
@@ -25,13 +24,10 @@ ssi-dids-core.workspace = true
 ssi-core.workspace = true
 ssi-verification-methods.workspace = true
 ssi-caips.workspace = true
-libipld = { version = "0.14", default-features = false, features = [
-    "dag-cbor",
-    "dag-json",
-    "derive",
-    "serde-codec",
-] }
+ipld-core = { version = "0.4", features = ["serde"] }
+serde_ipld_dagjson = "0.2"
 chrono = { workspace = true, features = ["serde"] }
+ucan-capabilities-object = { git = "https://github.com/tinycloudlabs/ucan-capabilities-object" }
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]
 chrono = { workspace = true, features = ["serde", "wasmbind"] }
